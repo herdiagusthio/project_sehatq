@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<h1>List Dokter</h1>
+
+<div class="container">
+	<% @doctors.each do |doctor| %>
+	  	<div class="row">
+	  		<div class="col-md-6 img">
+	  			<a href="/dokter/<%= doctor.slug %>"> 
+					<img src="<%= doctor.image %>"  alt="" class="img-thumbnail">
+				</a>
+		    </div>		    
+		    <div class="col-md-6 details">
+	      		<blockquote>
+	      			<a href="/dokter/<%= doctor.slug %>">
+		        		<h5><%= doctor.name %></h5>
+	        		</a>
+		        	<small><cite title="Source Title"><%= doctor.hospital.name %>  <i class="icon-map-marker"></i></cite></small>
+		        	<br>
+		        	<%= doctor.hospital.location %>
+		      	</blockquote>
+		    </div>		  	
+	  	</div>
+	  	<hr>
+	<% end %>
+	<div class="row">
+		<div class="col-md-2 col-md-offset-5"></div>		
+  		<%= paginate @doctors %>
+	</div>
+</div>

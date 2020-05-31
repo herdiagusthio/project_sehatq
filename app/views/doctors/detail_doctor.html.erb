@@ -1,0 +1,25 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-6 img">
+            <div class="profile-img">
+                <img src="<%= @data.image %>" alt="" class="img-thumbnail"/>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="text-left">
+                <h5><%= @data.name %></h5>
+                <h6><%= @data.role %></h6>
+            </div>
+            <br>
+            <h5 class="text-left">Profile</h5>
+            <div class="text-justify">
+                <p><%= @data.profile.tr('[]{}"', '') %></p> 
+            </div> 
+        </div>
+    </div>           
+</div>
