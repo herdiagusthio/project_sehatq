@@ -1,0 +1,9 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link <%= 'active' if request.path.split('/')[1].downcase == 'rumah-sakit' %>" href="<%= hospitals_path %>">Rumah Sakit <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link <%= 'active' if request.path.split('/')[1].downcase == 'dokter' %>" href="<%= doctors_path %>">Dokter <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
