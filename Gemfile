@@ -63,3 +63,8 @@ end
   # Use this for create form
   gem 'simple_form'
 
+  # Use this for datepicker
+  gem 'bootstrap-sass'
+  gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+  gem 'jquery-rails'
+  gem 'momentjs-rails', '>= 2.9'

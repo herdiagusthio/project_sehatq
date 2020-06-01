@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_31_084624) do
     t.string "email", null: false
     t.string "phone_number", null: false
     t.datetime "birthdate", null: false
+    t.date "booking_date", null: false
     t.integer "work_detail_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
