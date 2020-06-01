@@ -1,9 +1,25 @@
-
+<%
+	unless request.path.split('/')[1].blank?
+		rumah_sakit = false
+		dokter = false
+		if request.path.split('/')[1].downcase == 'rumah-sakit'
+			rumah_sakit = true
+		elsif request.path.split('/')[1].downcase == 'dokter'
+			dokter = true
+		end
+	end
+%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link <%= 'active' if request.path.split('/')[1].downcase == 'rumah-sakit' %>" href="<%= hospitals_path %>">Rumah Sakit <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link <%= 'active' if request.path.split('/')[1].downcase == 'dokter' %>" href="<%= doctors_path %>">Dokter <span class="sr-only">(current)</span></a>
+    <div class="navbar-nav mr-auto">
+      <a class="nav-item nav-link <%= 'active' if rumah_sakit %>" href="<%= hospitals_path %>">Rumah Sakit</a>
+      <a class="nav-item nav-link <%= 'active' if dokter %>" href="<%= doctors_path %>">Dokter</a>
     </div>
+    <% if current_user %>
+    	<%= link_to 'Logout' , destroy_user_session_path, method: :delete,
+            class: "btn btn-primary"   %>
+    <% else %>
+    	<a href="<%= new_user_session_path %>" class="btn btn-primary" >Login</a>
+    <% end %>
   </div>
 </nav>

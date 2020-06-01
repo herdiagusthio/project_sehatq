@@ -5,7 +5,8 @@ class DoctorsController < ApplicationController
 
   	def detail_doctor
   		@data = Doctor.find_by(slug: params[:slug])
+  		redirect_func(true, "Data tidak ditemukan", action: "doctors") and return if @data.blank?
 
-  		flash[:error] = 'Data tidak ditemukan' and redirect_to doctors_path if @data.blank?
+  		@work_detail = WorkDetail.where(doctor_id: @data.id)
   	end
 end

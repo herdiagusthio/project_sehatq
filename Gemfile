@@ -60,3 +60,6 @@ end
   # Use this for easy slug
   gem 'friendly_id', '~> 5.2.4'
 
+  # Use this for create form
+  gem 'simple_form'
+

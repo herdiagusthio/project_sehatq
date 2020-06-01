@@ -1,10 +1,6 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div id="sign_up">
+<%= bootstrap_devise_error_messages! %>
+    <div id="sign_up">
         <h3 class="text-center text-white pt-5">Register</h3>
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -14,18 +10,25 @@
                             <h3 class="text-center text-info">Register</h3>
                             <div class="form-group">
                                 <label for="email" class="text-info">Email:</label><br>
-                                <input type="text" name="email" id="email" class="form-control">
+                                <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', id: 'email' %>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password:</label><br>
-                                <input type="password" name="password" id="password" class="form-control">
+                                <!-- <input type="password" name="password" id="password" class="form-control"> -->
+
+                                <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', id: 'password' %>
+
+                                <% if @minimum_password_length %>
+                                  <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+                                <% end %>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Password Confirmation:</label><br>
-                                <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
+                                <!-- <input type="password" name="password_confirmation" id="password_confirmation" class="form-control"> -->
+                                <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', id: 'password_confirmation' %>
                             </div>
                             <div class="form-group">
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
                             </div>
                             <div id="register-link" class="text-right">
                                 <a class="text-info" href="<%= new_user_session_path %>" >Sign In Here</a>

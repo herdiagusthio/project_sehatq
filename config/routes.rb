@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 		get "/:slug", action: :detail_hospital
 	end
 
+	#Routes for booking function.rb
+	get "/booking", to: 'users#booking' 
+	post "/create_booking", to: 'users#create_booking', as: 'create_booking'
 end

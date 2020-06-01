@@ -1,0 +1,46 @@
+<%= simple_form_for(@booking_data, url:{action: "create_booking"}, class: 'form') do |f| %>
+  <%= f.error_notification %>
+  <div id="sign_up">
+    <h3 class="text-center text-white pt-5">Register</h3>
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6">
+                <div id="login-box" class="col-md-12">
+                    <form id="login-form" class="form" action="" method="post">
+                        <h3 class="text-center text-info">Booking Dokter</h3>
+                        <div class="form-group">
+                            <label for="patient_name" class="text-info">Nama Pasien:</label><br>
+                            <%= f.input :patient_name, autofocus: true, required: true, class: 'form-control', id: 'patient_name' %> 
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-info">Email:</label><br>
+                            <%= f.input :email, input_html: { value: current_user.email, readonly: :true }, class: 'form-control', id: 'email' %>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number" class="text-info">Nomor Handphone:</label><br>
+                            <%= f.input :phone_number, class: 'form-control', id: 'phone_number' %>
+                        </div>
+                        <div class="form-group">
+                            <label for="birthdate" class="text-info">Tanggal Lahir:</label><br>
+                            <%= f.input :birthdate, as: :date, 
+                              start_year: Date.today.year - 90,
+                              end_year: Date.today.year,
+                              order: [:day, :month, :year], required: true, 
+                              autofocus: true, class: 'form-control', id: 'birthdate'
+                            %>
+                        </div>
+                        <div class="form-group">
+                            <%= f.submit 'Booking Sekarang', class: 'btn btn-primary' %>
+                        </div>
+                        <div id="register-link" class="text-right">
+                            <a class="text-info" href="<%= new_user_session_path %>" >Sign In Here</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+  
