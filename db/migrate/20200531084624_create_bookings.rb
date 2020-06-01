@@ -5,7 +5,7 @@ class CreateBookings < ActiveRecord::Migration[6.0]
       t.string :patient_name, null: false
       t.string :email, null: false
       t.string :phone_number, null: false
-      t.datetime :birthdate, null: false
+      t.date :birthdate, null: false
       t.date :booking_date, null: false
       t.integer :work_detail_id, null: false
 

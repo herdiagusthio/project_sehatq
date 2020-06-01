@@ -1,7 +1,7 @@
 class HospitalsController < ApplicationController
 
 	def hospitals
-		@hospitals = Hospital.page(params[:page]).per(5)
+		@hospitals = Hospital.page(params[:page]).per(6)
 	end
 
 	def detail_hospital

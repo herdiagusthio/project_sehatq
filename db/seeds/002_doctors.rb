@@ -4,7 +4,7 @@ Doctor.destroy_all
 
 list_role = ["Dokter Umum", "Dokter Gigi", "Dokter Mata", "Dokter Kandungan", "Dokter Kulit"]
 list_hospital_id = Hospital.all.pluck(:id)
-20.times {
+24.times {
 	Doctor.find_or_create_by!(
 		name: "dr. #{FFaker::NameID.unique.name}",
 		profile: FFaker::HealthcareIpsum.sentences, 

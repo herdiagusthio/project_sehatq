@@ -1,7 +1,8 @@
 require 'ffaker'
 
 Hospital.destroy_all
-10.times {
+
+12.times {
 	x = [true, false].sample
 	Hospital.find_or_create_by(
 		name: "RS #{FFaker::NameID.unique.name}", 

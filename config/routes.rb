@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
 	#Routes for booking function.rb
 	get "/booking", to: 'users#booking' 
+	get "/list-booking", to: 'users#list_booking'
 	post "/create_booking", to: 'users#create_booking', as: 'create_booking'
+
 end

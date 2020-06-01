@@ -1,6 +1,6 @@
 class DoctorsController < ApplicationController
 	def doctors
-  		@doctors = Doctor.page(params[:page]).per(5)
+  		@doctors = Doctor.page(params[:page]).per(6)
   	end
 
   	def detail_doctor
