@@ -10,3 +10,10 @@ application up and running.
 * Database mysql
 
 * Database initialization can use db:seed for dummy data
+
+* Step for installation
+	- go to directory you clone this project
+	- yarn install --check-files
+	- bundle install
+	- rake db:create && rake db:migrate
+	- rake db:seed
